@@ -160,7 +160,7 @@ span.text-red {
 .hero-banner-container h1 {
   color: white;
   font-size: 10em;
-  margin-left: -10px;
+  margin-left: -20px;
   text-transform: uppercase;
 }
 .hero-banner-image {
@@ -235,7 +235,7 @@ span.text-red {
 .banner-desc .left h3 {
   font-weight: 900;
   font-size: 80px;
-  margin-left: 25px;
+  margin-left: 20px;
 }
 .banner-desc .left p {
   margin: 18px;
