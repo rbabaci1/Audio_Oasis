@@ -49,7 +49,7 @@ a {
   white-space: nowrap;
   will-change: transform;
   animation: marquee 15s linear infinite;
-  width: 180%;
+  width: 200%;
 }
 .track:hover {
   animation-play-state: paused;
@@ -59,7 +59,7 @@ a {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(-65%);
   }
 }
 
@@ -498,7 +498,6 @@ span.text-red {
 }
 .buttons .buy-now {
   width: 200px;
-
   padding: 10px 20px;
   background-color: #f02d34;
   color: white;
@@ -513,9 +512,11 @@ span.text-red {
 .buttons .buy-now:hover {
   transform: scale(1.1, 1.1);
 }
+
 .quantity-desc {
   border: 1px solid gray;
   padding: 6px;
+  margin-bottom: 4px;
 }
 .quantity-desc span {
   font-size: 16px;
@@ -526,12 +527,10 @@ span.text-red {
   border-right: 1px solid gray;
   color: #f02d34;
 }
-.quantity-desc .num {
-  border-right: 1px solid gray;
-  font-size: 20px;
-}
+
 .quantity-desc .plus {
   color: rgb(49, 168, 49);
+  border-left: 1px solid gray;
 }
 
 .maylike-products-wrapper {
@@ -725,7 +724,7 @@ span.text-red {
     font-size: 20px;
   }
   .track {
-    animation: marquee 10s linear infinite;
+    animation: marquee 15s linear infinite;
     width: 550%;
   }
   .success-wrapper,
