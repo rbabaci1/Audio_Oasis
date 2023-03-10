@@ -527,15 +527,24 @@ span.text-red {
   transform: scale(1.1, 1.1);
 }
 
+.quantity {
+  display: flex;
+  align-items: center;
+}
+
 .quantity-desc {
   border: 1px solid gray;
-  padding: 6px;
-  margin-bottom: 4px;
+  display: flex;
 }
 .quantity-desc span {
-  font-size: 16px;
   padding: 6px 12px;
   cursor: pointer;
+}
+.quantity-desc .num {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .quantity-desc .minus {
   border-right: 1px solid gray;
