@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { AiOutlineShopping } from 'react-icons/ai';
+import { GiOasis } from 'react-icons/gi';
 
 import { Cart } from './';
 // import { useStateContext } from '../context/StateContext';
@@ -12,6 +13,7 @@ const Navbar = () => {
     <div className='navbar-container'>
       <p className='logo'>
         <Link href='/'>AUDIO OASIS</Link>
+        <GiOasis color='#f02d34' size={28} />
       </p>
 
       <button

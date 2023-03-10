@@ -23,7 +23,7 @@ a {
 }
 .layout {
   position: relative;
-  top: 60px;
+  top: 55px;
   padding: 10px;
 }
 
@@ -78,6 +78,12 @@ span.text-red {
 .logo {
   color: gray;
   font-size: 18px;
+  position: relative;
+}
+.logo svg {
+  position: absolute;
+  right: -35px;
+  bottom: 6px;
 }
 .cart-icon {
   font-size: 25px;

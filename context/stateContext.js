@@ -52,7 +52,7 @@ export const StateContext = ({ children }) => {
     setCartItems(newCartItems);
   };
 
-  const toggleCartItemQuanitity = (id, value) => {
+  const toggleCartItemQuantity = (id, value) => {
     foundProduct = cartItems.find(item => item._id === id);
     index = cartItems.findIndex(product => product._id === id);
     const newCartItems = cartItems.filter(item => item._id !== id);
@@ -92,15 +92,15 @@ export const StateContext = ({ children }) => {
     <Context.Provider
       value={{
         showCart,
-        setShowCart,
         cartItems,
         totalPrice,
         totalQuantities,
         qty,
+        setShowCart,
         incQty,
         decQty,
         onAdd,
-        toggleCartItemQuanitity,
+        toggleCartItemQuantity,
         onRemove,
         setCartItems,
         setTotalPrice,
