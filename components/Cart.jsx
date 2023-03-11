@@ -71,7 +71,7 @@ const Cart = () => {
 
         <div className='product-container'>
           {cartItems.length >= 1 &&
-            cartItems.map(product => (
+            cartItems.map((product, index) => (
               <div className='product' key={product._id}>
                 <img
                   src={urlFor(product?.image[0])}
@@ -89,9 +89,7 @@ const Cart = () => {
                       <p className='quantity-desc'>
                         <span
                           className='minus'
-                          onClick={() =>
-                            toggleCartItemQuantity(product._id, 'DEC')
-                          }
+                          onClick={() => toggleCartItemQuantity(index, 'DEC')}
                         >
                           <AiOutlineMinus />
                         </span>
@@ -102,9 +100,7 @@ const Cart = () => {
 
                         <span
                           className='plus'
-                          onClick={() =>
-                            toggleCartItemQuantity(product._id, 'INC')
-                          }
+                          onClick={() => toggleCartItemQuantity(index, 'INC')}
                         >
                           <AiOutlinePlus />
                         </span>
@@ -114,7 +110,7 @@ const Cart = () => {
                     <button
                       type='button'
                       className='remove-item'
-                      onClick={() => removeFromCart(product)}
+                      onClick={() => removeFromCart(index)}
                     >
                       <TiDeleteOutline />
                     </button>

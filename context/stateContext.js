@@ -25,9 +25,6 @@ export const StateContext = ({ children }) => {
   const addToCart = (product, quantity) => {
     const isProductInCart = cartItems.find(item => item._id === product._id);
 
-    setTotalPrice(totalPrice + product.price * quantity);
-    setTotalQuantities(totalQuantities + quantity);
-
     if (isProductInCart) {
       const updatedCartItems = cartItems.map(cartProduct => {
         if (cartProduct._id === product._id)
@@ -39,43 +36,37 @@ export const StateContext = ({ children }) => {
 
       setCartItems(updatedCartItems);
     } else {
-      product.quantity = quantity;
-
-      setCartItems([...cartItems, { ...product }]);
+      setCartItems([...cartItems, { ...product, quantity }]);
     }
+
+    setTotalPrice(totalPrice + product.price * quantity);
+    setTotalQuantities(totalQuantities + quantity);
 
     toast.success(`${qty} ${product.name} added to the cart.`);
   };
 
-  const removeFromCart = product => {
-    const productToRemove = cartItems.find(item => item._id === product._id);
-    const newCartItems = cartItems.filter(item => item._id !== product._id);
-
+  const removeFromCart = index => {
     setTotalPrice(
-      totalPrice - productToRemove.price * productToRemove.quantity
+      totalPrice - cartItems[index].price * cartItems[index].quantity
     );
-    setTotalQuantities(totalQuantities - productToRemove.quantity);
-    setCartItems(newCartItems);
+    setTotalQuantities(totalQuantities - cartItems[index].quantity);
+    setCartItems(cartItems.filter((_, i) => i !== index));
   };
 
-  const toggleCartItemQuantity = (id, action) => {
-    const updatedCartItems = cartItems.map(product => {
-      if (product._id === id) {
-        if (action === 'INC') {
-          product.quantity += 1;
-          setTotalPrice(totalPrice + product.price);
-          setTotalQuantities(totalQuantities + 1);
-        } else if (action === 'DEC') {
-          if (product.quantity > 1) {
-            product.quantity -= 1;
-            setTotalPrice(totalPrice - product.price);
-            setTotalQuantities(totalQuantities - 1);
-          }
-        }
-      }
+  const toggleCartItemQuantity = (index, action) => {
+    let updatedCartItems = [...cartItems];
 
-      return product;
-    });
+    if (action === 'INC') {
+      updatedCartItems[index].quantity += 1;
+      setTotalPrice(totalPrice + updatedCartItems[index].price);
+      setTotalQuantities(totalQuantities + 1);
+    } else if (action === 'DEC') {
+      if (updatedCartItems[index].quantity > 1) {
+        updatedCartItems[index].quantity -= 1;
+        setTotalPrice(totalPrice - updatedCartItems[index].price);
+        setTotalQuantities(totalQuantities - 1);
+      }
+    }
 
     setCartItems(updatedCartItems);
   };
