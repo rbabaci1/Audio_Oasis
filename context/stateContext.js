@@ -59,28 +59,25 @@ export const StateContext = ({ children }) => {
   };
 
   const toggleCartItemQuantity = (id, action) => {
-    const productToUpdate = cartItems.find(product => product._id === id);
-    const newCartItems = cartItems.filter(product => product._id !== id);
-
-    if (action === 'INC') {
-      setCartItems([
-        ...newCartItems,
-        { ...productToUpdate, quantity: productToUpdate.quantity + 1 },
-      ]);
-
-      setTotalPrice(totalPrice + productToUpdate.price);
-      setTotalQuantities(totalQuantities + 1);
-    } else if (action === 'DEC') {
-      if (productToUpdate.quantity > 1) {
-        setCartItems([
-          ...newCartItems,
-          { ...productToUpdate, quantity: productToUpdate.quantity - 1 },
-        ]);
-
-        setTotalPrice(totalPrice - productToUpdate.price);
-        setTotalQuantities(totalQuantities - 1);
+    const updatedCartItems = cartItems.map(product => {
+      if (product._id === id) {
+        if (action === 'INC') {
+          product.quantity += 1;
+          setTotalPrice(totalPrice + product.price);
+          setTotalQuantities(totalQuantities + 1);
+        } else if (action === 'DEC') {
+          if (product.quantity > 1) {
+            product.quantity -= 1;
+            setTotalPrice(totalPrice - product.price);
+            setTotalQuantities(totalQuantities - 1);
+          }
+        }
       }
-    }
+
+      return product;
+    });
+
+    setCartItems(updatedCartItems);
   };
 
   return (
