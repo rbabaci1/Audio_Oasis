@@ -56,7 +56,7 @@ a {
   position: absolute;
   white-space: nowrap;
   will-change: transform;
-  animation: marquee 15s linear infinite;
+  animation: marquee 25s linear infinite;
   width: 200%;
 }
 .track:hover {
@@ -67,7 +67,7 @@ a {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-65%);
+    transform: translateX(-50%);
   }
 }
 

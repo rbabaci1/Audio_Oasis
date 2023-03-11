@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import {
   AiOutlineMinus,
   AiOutlinePlus,
@@ -11,9 +12,23 @@ import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
+  const router = useRouter();
   const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty, addToCart } = useStateContext();
+  const { qty, decQty, incQty, resetQty, addToCart } = useStateContext();
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      // reset the previous selected quantity to 1 when the user navigates to another page
+      resetQty();
+    };
+
+    router.events.on('routeChangeStart', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, [router]);
 
   const handleBuyNow = () => {
     addToCart(product, qty);

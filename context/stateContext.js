@@ -22,6 +22,10 @@ export const StateContext = ({ children }) => {
     });
   };
 
+  const resetQty = () => {
+    setQty(1);
+  };
+
   const addToCart = (product, quantity) => {
     const isProductInCart = cartItems.find(item => item._id === product._id);
 
@@ -82,6 +86,7 @@ export const StateContext = ({ children }) => {
         setShowCart,
         incQty,
         decQty,
+        resetQty,
         addToCart,
         toggleCartItemQuantity,
         removeFromCart,
