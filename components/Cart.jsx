@@ -9,7 +9,7 @@ import {
 import { TiDeleteOutline } from 'react-icons/ti';
 import toast from 'react-hot-toast';
 
-import { useStateContext } from '../context/StateContext.js';
+import useStateContext from '../context/StateContext.js';
 import { urlFor } from '../lib/client';
 import getStripe from '../lib/getStripe';
 
