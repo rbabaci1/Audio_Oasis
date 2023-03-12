@@ -261,9 +261,9 @@ span.text-red {
 }
 .footer-banner-image {
   position: absolute;
-  /* top: -35%;
-  left: 8%; */
-  top: -25%;
+  width: 450px;
+  height: 450px;
+  top: 0;
   left: 25%;
 }
 .banner-desc .right {
@@ -691,6 +691,7 @@ span.text-red {
     flex-wrap: wrap;
     gap: 20px;
   }
+
   .hero-banner-container {
     line-height: 1.3;
   }
