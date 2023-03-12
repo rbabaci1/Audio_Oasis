@@ -9,7 +9,7 @@ import {
 
 import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
-import { useStateContext } from '../../context/StateContext';
+import { useStateContext } from '../../context/StateContext.js';
 
 const ProductDetails = ({ product, products }) => {
   const router = useRouter();
