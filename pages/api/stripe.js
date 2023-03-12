@@ -41,7 +41,7 @@ export default async function handler(req, res) {
             quantity: product.quantity,
           };
         }),
-        success_url: `${req.headers.origin}`,
+        success_url: `${req.headers.origin}/success`,
         cancel_url: `${req.headers.origin}/canceled`,
       };
 

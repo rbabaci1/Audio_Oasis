@@ -80,6 +80,11 @@ span.text-red {
   font-size: 18px;
   position: relative;
 }
+.logo:hover {
+  transform: scale(1.06);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
 .logo svg {
   position: absolute;
   right: -35px;

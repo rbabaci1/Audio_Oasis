@@ -61,15 +61,13 @@ const Cart = () => {
             <AiOutlineShopping size={150} />
             <h3>Your shopping bag is empty</h3>
 
-            <Link href='/'>
-              <button
-                type='button'
-                onClick={() => setShowCart(false)}
-                className='btn'
-              >
-                Continue Shopping
-              </button>
-            </Link>
+            <button
+              type='button'
+              onClick={() => setShowCart(false)}
+              className='btn'
+            >
+              Continue Shopping
+            </button>
           </div>
         )}
 
@@ -98,9 +96,7 @@ const Cart = () => {
                           <AiOutlineMinus />
                         </span>
 
-                        <span className='num' onClick=''>
-                          {product.quantity}
-                        </span>
+                        <span className='num'>{product.quantity}</span>
 
                         <span
                           className='plus'

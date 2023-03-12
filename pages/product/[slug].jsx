@@ -13,9 +13,11 @@ import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
   const router = useRouter();
-  const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
-  const { qty, decQty, incQty, resetQty, addToCart } = useStateContext();
+  const { qty, decQty, incQty, resetQty, addToCart, setShowCart } =
+    useStateContext();
+
+  const { image, name, details, price } = product;
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -32,7 +34,7 @@ const ProductDetails = ({ product, products }) => {
 
   const handleBuyNow = () => {
     addToCart(product, qty);
-    // setShowCart(true);
+    setShowCart(true);
   };
 
   return (
@@ -104,11 +106,7 @@ const ProductDetails = ({ product, products }) => {
               Add to Cart
             </button>
 
-            <button
-              type='button'
-              className='buy-now'
-              onClick={() => console.log('Buy now')}
-            >
+            <button type='button' className='buy-now' onClick={handleBuyNow}>
               Buy Now
             </button>
           </div>
