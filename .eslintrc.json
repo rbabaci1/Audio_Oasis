@@ -1,6 +1,3 @@
 {
-  "extends": ["next/babel", "next/core-web-vitals"],
-  "parserOptions": {
-    "requireConfigFile": false
-  }
+  "extends": ["next/babel", "next/core-web-vitals"]
 }
