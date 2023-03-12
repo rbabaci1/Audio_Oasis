@@ -10,11 +10,10 @@
   },
   "dependencies": {
     "@babel/core": "^7.17.9",
-    "@sanity/client": "^3.2.0",
+    "@sanity/client": "^2.23.2",
     "@sanity/image-url": "^1.0.1",
     "@stripe/stripe-js": "^1.25.0",
     "canvas-confetti": "^1.5.1",
-    "eslint-plugin-react": "^7.32.2",
     "next": "12.1.0",
     "next-sanity-image": "^3.2.1",
     "react": "17.0.2",
@@ -26,6 +25,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.16.7",
     "eslint": "8.13.0",
-    "eslint-config-next": "^13.2.4"
+    "eslint-config-next": "^12.1.4",
+    "eslint-plugin-react": "^7.32.2"
   }
 }
